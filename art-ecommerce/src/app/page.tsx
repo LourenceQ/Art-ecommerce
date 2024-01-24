@@ -8,16 +8,14 @@ export default function Home() {
       <span>Sample Image 1</span>
       <span>Sample Image 2</span>
 
-      <div>
-        <div>
-          Your<em> Album </em> and <em>Artist</em> Name
+      <div className={styles.ctaText}>
+        <div className={styles.ctaMainText}>
+          Your<em className="emText"> Album </em> and <em className="emText">Artist</em> Name
         </div>
-      </div>
-      <div>
-        <div>
-          On <em>Custom</em> Album Designs
+        <div className="{`${styles.ctaSubText}`}">
+          On <em className="emText">Custom</em> Album Designs
         </div>
-        <button>Shop Now</button>
+        <button className="buttonGlobal cta buttonShop">Shop Now</button>
       </div>
       <span>Sample Image 3</span>
       <span>Sample Image 4</span>
