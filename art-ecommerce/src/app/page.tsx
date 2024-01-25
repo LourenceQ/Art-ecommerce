@@ -1,11 +1,13 @@
 import styles from "./page.module.css";
-
+import Image from "next/image";
 
 export default function Home() {
   return (
     <div className={styles.cta}>
       <div className={styles.header}></div>
-      <span>Sample Image 1</span>
+      <span>
+        <Image width="200" height="200" src="/images/albums/sunset-divide/divinity.png" alt="divinityAlbum"/>
+      </span>
       <span>Sample Image 2</span>
 
       <div className={styles.ctaText}>
