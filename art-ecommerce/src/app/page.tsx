@@ -1,6 +1,24 @@
 import styles from "./page.module.css";
 import Image from "next/image";
 
+import {
+  dearMisery,
+  aRequiemOfPeace,
+  asTheSunSpeaks,
+  theEscape,
+  newLife,
+  synchronicity,
+  theUndertaking,
+  theWayItIs,
+  whyWeSuffer,
+  ashes,
+  divinity,
+  tranquility,
+} from "../../public/images/albums";
+
+import heroBanner from "../../public/images/hero-banner.png";
+import soundwaves from "../../public/images/soundwaves.jpg";
+
 export default function Home() {
   return (
     <>
@@ -8,7 +26,7 @@ export default function Home() {
         <Image
           objectFit="cover"
           layout="fill"
-          src="/images/hero-banner.png"
+          src={heroBanner}
           alt="heroImage"
         />
       </div>
@@ -19,7 +37,7 @@ export default function Home() {
             layout="fixed"
             width="200"
             height="200"
-            src="/images/albums/sunset-divide/divinity.png"
+            src={divinity}
             alt="divinityAlbum"
           />
         </span>
@@ -28,7 +46,7 @@ export default function Home() {
             layout="fixed"
             width="200"
             height="200"
-            src="/images/albums/static-eyes/synchronicity.png"
+            src={synchronicity}
             alt="synchronicity"
           />
         </span>
@@ -48,7 +66,7 @@ export default function Home() {
             layout="fixed"
             width="200"
             height="200"
-            src="/images/albums/static-eyes/the-undertaking.png"
+            src={theUndertaking}
             alt="theUndertaking"
           />
         </span>
@@ -57,7 +75,7 @@ export default function Home() {
             layout="fixed"
             width="200"
             height="200"
-            src="/images/albums/chaos-principle/as-the-sun-speaks.png"
+            src={asTheSunSpeaks}
             alt="asTheSunSpeaks"
           />
         </span>
@@ -69,7 +87,7 @@ export default function Home() {
           height="1"
           objectFit="cover"
           layout="responsive"
-          src="/images/soundwaves.jpg"
+          src={soundwaves}
           alt="soundwaveImage"
         />
       </div>
