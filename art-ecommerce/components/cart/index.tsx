@@ -1,40 +1,62 @@
-//import CartItem from './cart-item'
-import { currencyFormat } from '../../utils/numericFormatters'
-import styles from './Cart.module.scss'
-import { Key } from 'react';
+import CartItem from "./cart-item";
+import { currencyFormat } from "../../utils/numericFormatters";
+import styles from "./Cart.module.scss";
+import { Key } from "react";
 
-// export default function Cart({ cartItems, removeItemFromCart }) {
-//   function getCartTotal() {
-//     const totalCost = cartItems.reduce((prev: any, curr: { discount: number; price: number }) => {
-//       const itemPrice = curr.discount === 0 ? curr.price : curr.price * (1 - curr.discount)
-//       return prev + itemPrice
-//     }, 0)
+interface Product {
+  discount: number;
+  price: number;
+  // Add any other properties of the product here
+}
 
-//     return currencyFormat(totalCost)
-//   }
+interface CartProps {
+  cartItems: Product[];
+  removeItemFromCart: (product: Product) => void;
+}
 
-//   function renderEmptyCart() {
-//     return (
-//       <div className={styles.emptyCart}>You have no items in your cart</div>
-//     )
-//   }
+export default function Cart({ cartItems, removeItemFromCart }: CartProps) {
+  function getCartTotal() {
+    const totalCost = cartItems.reduce(
+      (prev: any, curr: { discount: number; price: number }) => {
+        const itemPrice =
+          curr.discount === 0 ? curr.price : curr.price * (1 - curr.discount);
+        return prev + itemPrice;
+      },
+      0
+    );
 
-//   function renderCart() {
-//     return (
-//       <ul className={styles.cart}>
-//         {cartItems.map((product: any, i: Key | null | undefined) => (
-//           <li className={styles.cartItem} key={i}>
-//             {/* <CartItem product={product} removeItemFromCart={removeItemFromCart} /> */}
-//           </li >
-//         ))}
-//       </ul >
-//     )
-//   }
+    return currencyFormat(totalCost);
+  }
 
-//   return (
-//     <div className={styles.container}>
-//       {cartItems.length > 0 ? renderCart() : renderEmptyCart()}
-//       {cartItems.length > 0 ? <div className={styles.total}>Total: {getCartTotal()}</div> : null}
-//     </div >
-//   )
-// }
+  function renderEmptyCart() {
+    return (
+      <div className={styles.emptyCart}>You have no items in your cart</div>
+    );
+  }
+
+  function renderCart() {
+    return (
+      <ul className={styles.cart}>
+        {cartItems.map((product: any, i: Key | null | undefined) => (
+          <li className={styles.cartItem} key={i}>
+            {
+              <CartItem
+                product={product}
+                removeItemFromCart={removeItemFromCart}
+              />
+            }
+          </li>
+        ))}
+      </ul>
+    );
+  }
+
+  return (
+    <div className={styles.container}>
+      {cartItems.length > 0 ? renderCart() : renderEmptyCart()}
+      {cartItems.length > 0 ? (
+        <div className={styles.total}>Total: {getCartTotal()}</div>
+      ) : null}
+    </div>
+  );
+}
